@@ -104,13 +104,31 @@ html[data-theme="dark"] {
 
 /* Dark mode specific adjustments */
 /* Logo and branding */
-html[data-theme="dark"] .logo img,
+html[data-theme="dark"] header .logo img,
 html[data-theme="dark"] .hero-logo {
   filter: brightness(2) contrast(1.2) invert(1);
+  opacity: 1;
+  visibility: visible;
   transition: var(--transition);
 }
 
-/* Mobile navigation dark mode fixes */
+/* Force logo visibility in dark mode header */
+html[data-theme="dark"] header .logo img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Header and mobile navigation dark mode fixes */
+html[data-theme="dark"] header {
+  background-color: rgba(10, 10, 10, 0.95);
+}
+
+html[data-theme="dark"] header .logo a {
+  display: flex;
+  align-items: center;
+}
+
 html[data-theme="dark"] .mobile-toggle {
   color: rgba(255, 255, 255, 0.9);
 }

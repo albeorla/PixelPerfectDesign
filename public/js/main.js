@@ -1,6 +1,50 @@
 // Pixel Perfect Website JavaScript - Enhanced Version
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize theme from localStorage or system preference
+    function initializeTheme() {
+        // Check if user has a saved preference
+        const savedTheme = localStorage.getItem('pixelperfect-theme');
+        
+        if (savedTheme) {
+            // Apply saved theme preference
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            if (document.querySelector('.theme-switch input')) {
+                document.querySelector('.theme-switch input').checked = savedTheme === 'dark';
+            }
+        } else {
+            // Use system preference as default if available
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                if (document.querySelector('.theme-switch input')) {
+                    document.querySelector('.theme-switch input').checked = true;
+                }
+            }
+        }
+    }
+    
+    // Run theme initialization
+    initializeTheme();
+    
+    // Add theme toggle functionality
+    function setupThemeToggle() {
+        const themeToggle = document.querySelector('.theme-switch input');
+        if (themeToggle) {
+            themeToggle.addEventListener('change', function() {
+                // Set theme based on toggle state
+                const newTheme = this.checked ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', newTheme);
+                
+                // Save preference to localStorage for persistence
+                localStorage.setItem('pixelperfect-theme', newTheme);
+            });
+        }
+    }
+    
+    // Setup theme toggle functionality
+    setupThemeToggle();
+    
     // Mobile Navigation Toggle with accessibility improvements
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
