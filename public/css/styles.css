@@ -870,19 +870,18 @@ footer::before {
 }
 
 .footer-nav ul,
-.footer-services ul {
+.footer-services ul,
+.footer-contact ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .footer-nav li,
-.footer-services li {
+.footer-services li,
+.footer-contact li {
   margin-bottom: 16px;
   line-height: 1.5;
-}
-
-.footer-services li {
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
 }
@@ -904,13 +903,9 @@ footer::before {
   transform: translateX(5px);
 }
 
-.footer-contact p {
-  margin-bottom: 16px;
+.footer-contact li {
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.5;
-  font-size: 0.95rem;
 }
 
 .footer-contact i {
