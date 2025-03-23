@@ -364,10 +364,11 @@
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
-    <div class="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <!-- Scroll to top button - Enhanced for accessibility -->
+    <button class="scroll-top" aria-label="Scroll to top of page" title="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+        <span class="sr-only">Scroll to top</span>
+    </button>
 
     <script src="js/form-validation.js"></script>
     <script src="js/main.js"></script>

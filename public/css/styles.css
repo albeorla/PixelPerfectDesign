@@ -3,8 +3,9 @@
    A modern, elegant design for a luxury audio-video solutions company
 */
 
-/* ---------- Global Styles ---------- */
+/* ---------- Global Styles with 2025 Standards ---------- */
 :root {
+  /* Base colors - light mode */
   --primary-color: #9c8f6a;     /* Gold/brass accent color */
   --primary-light: #e1d5ba;     /* Light gold for highlights */
   --primary-dark: #786c50;      /* Dark gold for shadows/accents */
@@ -12,9 +13,80 @@
   --light-color: #f8f8f8;       /* Off-white for light backgrounds */
   --text-color: #333333;        /* Main text color */
   --text-light: #777777;        /* Light text color for secondary content */
-  --border-radius: 5px;         /* Standard border radius */
-  --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Standard shadow */
-  --transition: all 0.3s ease;  /* Standard transition */
+  
+  /* System-level preferences */
+  --border-radius: 10px;        /* Rounded corners for modern look */
+  --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+  --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth transition */
+  
+  /* Content width constraints */
+  --content-width-lg: 1200px;
+  --content-width-md: 960px;
+  --content-width-sm: 768px;
+  
+  /* Spacing system - 2025 standards */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  
+  /* Background colors */
+  --bg-main: #ffffff;
+  --bg-alt: #f5f5f5;
+  --bg-card: #ffffff;
+  
+  /* Form elements */
+  --input-bg: rgba(248, 248, 248, 0.7);
+  --input-border: #eee;
+  --input-focus-border: var(--primary-color);
+  --input-focus-shadow: rgba(156, 143, 106, 0.15);
+  
+  /* Secondary accent color for more colorful interfaces */
+  --accent-color: #0099ff;
+  --accent-light: #e6f5ff;
+  --accent-dark: #0077cc;
+}
+
+/* Dark mode support - 2025 standard */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #b5a982;    /* Brighter gold for dark mode */
+    --primary-light: #cfc3a8;    /* Adjusted light gold */
+    --primary-dark: #9c8f6a;     /* Adjusted dark gold */
+    
+    --dark-color: #121212;       /* Darker background for dark mode */
+    --light-color: #272727;      /* Dark grey for light elements in dark mode */
+    --text-color: #e0e0e0;       /* Light text for dark mode */
+    --text-light: #b0b0b0;       /* Dimmed text for dark mode */
+    
+    /* Background colors for dark mode */
+    --bg-main: #121212;
+    --bg-alt: #1e1e1e;
+    --bg-card: #272727;
+    
+    /* Adjusted box shadow for dark mode */
+    --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    
+    /* Form elements for dark mode */
+    --input-bg: rgba(30, 30, 30, 0.7);
+    --input-border: #444;
+    --input-focus-border: var(--primary-color);
+    --input-focus-shadow: rgba(156, 143, 106, 0.25);
+  }
+  
+  /* Invert images that would look bad on dark backgrounds */
+  .footer-logo {
+    filter: brightness(0.9) contrast(1.1);
+  }
+  
+  /* Improve visibility of certain elements in dark mode */
+  .service-card, 
+  .feature-card, 
+  .brand-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
 }
 
 * {
@@ -32,8 +104,16 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   font-size: 16px;
-  background-color: var(--light-color);
+  background-color: var(--bg-main);
   overflow-x: hidden;
+  
+  /* Apply common transitions for dark mode/light mode */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  
+  /* Font rendering improvements for 2025 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -447,36 +527,70 @@ header.scrolled {
 .contact-form {
   padding: 30px;
   background-color: white;
-  border-radius: var(--border-radius);
+  border-radius: 12px; /* Updated for 2025 standards */
   box-shadow: var(--box-shadow);
 }
 
+/* 2025 form description styling */
+.form-description {
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  position: relative;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 400;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #eee;
-  border-radius: var(--border-radius);
+  padding: 14px 16px;
+  border: 2px solid #eee;
+  border-radius: 10px;
   font-size: 1rem;
   color: var(--text-color);
-  transition: var(--transition);
+  transition: all 0.2s ease;
+  background-color: rgba(248, 248, 248, 0.7);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: #ddd;
+  background-color: rgba(248, 248, 248, 0.9);
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+.form-group textarea:focus,
+.form-group select:focus {
   border-color: var(--primary-color);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(156, 143, 106, 0.1);
+  box-shadow: 0 0 0 4px rgba(156, 143, 106, 0.15);
+  background-color: white;
+}
+
+/* Styling for form elements with validation states - 2025 standards */
+.form-group input:not(:focus):invalid,
+.form-group textarea:not(:focus):invalid {
+  border-color: #e53935;
+}
+
+.form-group input:valid,
+.form-group textarea:valid {
+  border-color: #4caf50;
 }
 
 .form-group textarea {
@@ -484,10 +598,122 @@ header.scrolled {
   resize: vertical;
 }
 
+/* Select styling for 2025 */
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* Checkbox styling for 2025 */
+.form-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-checkbox input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: rgba(248, 248, 248, 0.7);
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #eee;
+  border-radius: 6px;
+  display: grid;
+  place-content: center;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.form-checkbox input[type="checkbox"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+  background-color: var(--primary-color);
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.form-checkbox input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.form-checkbox input[type="checkbox"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(156, 143, 106, 0.15);
+}
+
+.form-checkbox label {
+  margin-bottom: 0;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* Enhanced button styling for 2025 */
+.contact-form .btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  font-weight: 500;
+  border-radius: 8px;
+  position: relative;
+}
+
+.contact-form .btn i {
+  transition: transform 0.3s ease;
+}
+
+.contact-form .btn:hover i {
+  transform: translateX(4px);
+}
+
+/* Validation feedback for 2025 */
 .error-message {
   color: #e53935;
-  font-size: 0.9rem;
-  margin-top: 5px;
+  font-size: 0.85rem;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Success message for 2025 */
+.success-message {
+  background-color: rgba(76, 175, 80, 0.1);
+  border-left: 4px solid #4caf50;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Screen reader only utility class - 2025 accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .success-message {
@@ -631,13 +857,13 @@ footer::before {
   text-align: center;
 }
 
-/* ---------- Scroll to Top Button ---------- */
+/* ---------- Scroll to Top Button - 2025 UI/UX Standards ---------- */
 .scroll-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   background-color: var(--primary-color);
   color: white;
   border-radius: 50%;
@@ -647,19 +873,69 @@ footer::before {
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   z-index: 999;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border: none;
+  /* Add subtle gradient for modern look */
+  background-image: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
 }
 
 .scroll-top.active {
   opacity: 1;
   visibility: visible;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
 }
 
 .scroll-top:hover {
   background-color: var(--primary-dark);
-  transform: translateY(-5px);
+  transform: scale(1.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-top:active {
+  transform: scale(0.95);
+}
+
+.scroll-top:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(156, 143, 106, 0.3);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-top.active {
+    animation: none;
+  }
+  
+  .scroll-top:hover {
+    transform: none;
+  }
+  
+  .scroll-top:active {
+    transform: none;
+  }
+  
+  .scroll-top,
+  .scroll-top * {
+    transition-duration: 0.1s !important;
+  }
 }
 
 /* ---------- Media Queries ---------- */
