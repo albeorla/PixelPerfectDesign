@@ -790,11 +790,23 @@ footer::before {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
   text-align: left;
-  padding: var(--space-md) 0;
+  padding: 0;
+}
+
+@media (max-width: 1100px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer-about {
@@ -832,10 +844,12 @@ footer::before {
 .footer-contact h3 {
   color: var(--primary-light);
   margin-bottom: 25px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   position: relative;
   display: inline-block;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .footer-nav h3::after,
@@ -843,9 +857,9 @@ footer::before {
 .footer-contact h3::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -10px;
   left: 0;
-  width: 40px;
+  width: 30px;
   height: 2px;
   background: var(--primary-color);
 }
@@ -859,7 +873,12 @@ footer::before {
 
 .footer-nav li,
 .footer-services li {
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.footer-services li {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-nav a,
@@ -869,7 +888,8 @@ footer::before {
   transition: var(--transition);
   display: inline-block;
   position: relative;
-  padding: 3px 0;
+  padding: 4px 0;
+  font-size: 0.95rem;
 }
 
 .footer-nav a:hover,
@@ -879,18 +899,19 @@ footer::before {
 }
 
 .footer-contact p {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
 }
 
 .footer-contact i {
-  margin-right: 10px;
+  margin-right: 15px;
   color: var(--primary-color);
-  width: 20px;
+  width: 16px;
   font-size: 1.1rem;
-  margin-top: 4px;
+  text-align: center;
 }
 
 /* Enhanced social links for 2025 */
@@ -947,16 +968,22 @@ footer::before {
 
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+  padding-top: 25px;
+  margin-top: 30px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
+}
+
+.copyright p {
+  margin-bottom: 8px;
 }
 
 .copyright a {
   color: var(--primary-light);
   transition: var(--transition);
   text-decoration: none;
+  padding: 0 5px;
 }
 
 .copyright a:hover {
@@ -968,6 +995,7 @@ footer::before {
   margin-top: 10px;
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
+  padding-bottom: 10px;
 }
 
 .made-with span[aria-hidden="true"] {
