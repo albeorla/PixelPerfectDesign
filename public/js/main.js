@@ -9,19 +9,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (savedTheme) {
             // Apply saved theme preference
             document.documentElement.setAttribute('data-theme', savedTheme);
-            if (document.querySelector('.theme-switch input')) {
-                document.querySelector('.theme-switch input').checked = savedTheme === 'dark';
-            }
         } else {
             // Use system preference as default if available
             const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (prefersDark) {
                 document.documentElement.setAttribute('data-theme', 'dark');
-                if (document.querySelector('.theme-switch input')) {
-                    document.querySelector('.theme-switch input').checked = true;
-                }
             }
         }
+        
+        // We'll update the toggle button icon after DOM content is fully loaded
+        // This happens in the updateThemeToggleIcon function which is called from setupThemeToggle
     }
     
     // Run theme initialization
@@ -29,16 +26,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add theme toggle functionality
     function setupThemeToggle() {
-        const themeToggle = document.querySelector('.theme-switch input');
-        if (themeToggle) {
-            themeToggle.addEventListener('change', function() {
-                // Set theme based on toggle state
-                const newTheme = this.checked ? 'dark' : 'light';
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        
+        if (themeToggleBtn) {
+            // Initialize button icon based on current theme
+            updateThemeToggleIcon();
+            
+            themeToggleBtn.addEventListener('click', function() {
+                // Get current theme
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                // Toggle theme
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                // Apply new theme
                 document.documentElement.setAttribute('data-theme', newTheme);
+                
+                // Update button icon
+                updateThemeToggleIcon();
                 
                 // Save preference to localStorage for persistence
                 localStorage.setItem('pixelperfect-theme', newTheme);
             });
+        }
+    }
+    
+    // Helper function to update the theme toggle button icon
+    function updateThemeToggleIcon() {
+        const themeToggleBtn = document.getElementById('theme-toggle-btn');
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        
+        if (themeToggleBtn) {
+            const icon = themeToggleBtn.querySelector('i');
+            if (icon) {
+                if (currentTheme === 'dark') {
+                    icon.className = 'fas fa-sun';
+                } else {
+                    icon.className = 'fas fa-moon';
+                }
+            }
         }
     }
     
