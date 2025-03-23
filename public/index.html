@@ -372,48 +372,20 @@
     <script src="js/form-validation.js"></script>
     <script src="js/main.js"></script>
     
-    <!-- Theme Switcher (Dev Only) -->
+    <!-- Theme Switcher with Icons -->
     <div class="theme-switch-container">
-        <span>Dark Mode:</span>
+        <span>Theme:</span>
+        <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
         <label class="theme-switch">
             <input type="checkbox" id="theme-toggle">
             <span class="theme-slider"></span>
+            <span class="sr-only">Toggle between light and dark themes</span>
         </label>
+        <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
     </div>
 
-    <!-- Theme Toggle Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeToggle = document.getElementById('theme-toggle');
-            const htmlElement = document.documentElement;
-            
-            // Check system preference and set the toggle accordingly
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                htmlElement.setAttribute('data-theme', 'dark');
-                themeToggle.checked = true;
-            }
-            
-            // Handle manual toggling
-            themeToggle.addEventListener('change', function() {
-                if (this.checked) {
-                    htmlElement.setAttribute('data-theme', 'dark');
-                } else {
-                    htmlElement.setAttribute('data-theme', 'light');
-                }
-            });
-            
-            // Listen for system preference changes
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-                if (!htmlElement.hasAttribute('data-theme')) {
-                    themeToggle.checked = e.matches;
-                    if (e.matches) {
-                        htmlElement.setAttribute('data-theme', 'dark');
-                    } else {
-                        htmlElement.setAttribute('data-theme', 'light');
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- Note: Theme toggle functionality is now handled in main.js -->
+    <!-- The theme toggle will initialize based on localStorage or system preference -->
+    <!-- It also saves user preferences for future visits -->
 </body>
 </html>
