@@ -42,6 +42,37 @@
   footer {
     padding: 40px 0 20px;
   }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .footer-about, 
+  .footer-nav, 
+  .footer-services, 
+  .footer-contact {
+    text-align: center;
+  }
+  
+  .footer-about {
+    align-items: center;
+  }
+  
+  .footer-nav h3::after,
+  .footer-services h3::after,
+  .footer-contact h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .footer-contact p {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
 }
 
 /* Small mobile devices */

@@ -493,15 +493,35 @@ header.scrolled {
 
 /* ---------- Footer ---------- */
 footer {
-  background-color: var(--dark-color);
+  background: linear-gradient(to bottom, #1a1a1a, #121212);
   color: white;
   padding: 80px 0 20px;
-  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.footer-content {
-  max-width: 600px;
-  margin: 0 auto 50px;
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, var(--primary-light), var(--primary-color), var(--primary-dark));
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.footer-about {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-logo {
@@ -509,19 +529,88 @@ footer {
   margin-bottom: 20px;
 }
 
+.footer-about p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+.footer-nav h3,
+.footer-services h3,
+.footer-contact h3 {
+  color: var(--primary-light);
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-nav h3::after,
+.footer-services h3::after,
+.footer-contact h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.footer-nav ul,
+.footer-services ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-nav li,
+.footer-services li {
+  margin-bottom: 12px;
+}
+
+.footer-nav a,
+.footer-contact a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+.footer-nav a:hover,
+.footer-contact a:hover {
+  color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.footer-contact p {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-contact i {
+  margin-right: 10px;
+  color: var(--primary-color);
+  width: 20px;
+}
+
 .social-links {
-  margin-bottom: 30px;
+  display: flex;
+  margin-bottom: 0;
 }
 
 .social-links a {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40px;
   height: 40px;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border-radius: 50%;
-  margin: 0 10px;
-  line-height: 40px;
+  margin-right: 12px;
   transition: var(--transition);
 }
 
@@ -535,6 +624,7 @@ footer {
   padding-top: 20px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.6);
+  text-align: center;
 }
 
 /* ---------- Scroll to Top Button ---------- */
