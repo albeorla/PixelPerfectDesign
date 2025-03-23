@@ -117,14 +117,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  
-  /* Establish base font size for better rem usage */
-  font-size: 16px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.3;
   margin-bottom: 20px;
   color: var(--dark-color);
 }
@@ -133,7 +130,6 @@ p {
   margin-bottom: 20px;
   color: var(--text-color);
   font-size: 1rem;
-  line-height: 1.7;
 }
 
 a {
@@ -164,7 +160,6 @@ section {
   padding: 100px 0;
   position: relative;
   overflow: hidden;
-  margin-bottom: 20px;
 }
 
 .section-title {
@@ -266,19 +261,11 @@ header.scrolled {
   align-items: center;
 }
 
-.logo a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: var(--dark-color);
-  padding: var(--space-xs);
-}
-
 .logo img {
   width: auto;
   height: 50px;
   max-width: 100%;
-  margin-right: 15px;
+  margin-right: 10px;
   transition: var(--transition);
   object-fit: contain;
 }
@@ -287,18 +274,6 @@ header.scrolled {
   font-size: 1.5rem;
   margin: 0;
   color: var(--dark-color);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.dark-mode .logo h1 {
-  color: var(--text-color);
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo h1 {
-    color: var(--text-color);
-  }
 }
 
 .nav-menu {
@@ -400,7 +375,7 @@ header.scrolled {
 
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 30px;
 }
 
@@ -446,7 +421,7 @@ header.scrolled {
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
 }
 
@@ -502,7 +477,7 @@ header.scrolled {
 
 .brands-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
 }
 
@@ -624,14 +599,13 @@ header.scrolled {
 }
 
 /* Styling for form elements with validation states - 2025 standards */
-/* Only apply validation styles after user interaction, not on page load */
-.form-group input.was-validated:not(:focus):invalid,
-.form-group textarea.was-validated:not(:focus):invalid {
+.form-group input:not(:focus):invalid,
+.form-group textarea:not(:focus):invalid {
   border-color: #e53935;
 }
 
-.form-group input.was-validated:valid,
-.form-group textarea.was-validated:valid {
+.form-group input:valid,
+.form-group textarea:valid {
   border-color: #4caf50;
 }
 
@@ -773,14 +747,13 @@ header.scrolled {
   padding: 40px;
 }
 
-/* ---------- Footer - 2025 Standards ---------- */
+/* ---------- Footer ---------- */
 footer {
-  background: linear-gradient(to bottom right, #222222, #111111);
+  background: linear-gradient(to bottom, #1a1a1a, #121212);
   color: white;
   padding: 80px 0 20px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
 }
 
 footer::before {
@@ -795,35 +768,10 @@ footer::before {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   text-align: left;
-  padding: 0;
-  justify-content: space-between;
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-@media (max-width: 1100px) {
-  .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 30px;
-  }
-}
-
-@media (max-width: 992px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 25px;
-  }
-}
-
-@media (max-width: 767px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .footer-about {
@@ -832,53 +780,25 @@ footer::before {
   align-items: flex-start;
 }
 
-/* Simple logo container */
-.footer-logo-container {
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
 .footer-logo {
   width: 120px;
-  height: auto;
-  display: block;
-  opacity: 0.9;
+  margin-bottom: 20px;
 }
 
 .footer-about p {
   color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 16px;
+  margin-bottom: 25px;
   line-height: 1.7;
-  font-size: 0.9rem;
-  max-width: 90%;
-}
-
-footer {
-  background-color: #000000;
-  padding: 60px 0 30px;
-}
-
-.footer-nav,
-.footer-services,
-.footer-contact {
-  min-width: 180px;
-  width: 100%;
-  max-width: 220px;
-  padding-right: 10px;
 }
 
 .footer-nav h3,
 .footer-services h3,
 .footer-contact h3 {
-  color: #6a6a6a;
-  margin-bottom: 20px;
-  font-size: 0.9rem;
+  color: var(--primary-light);
+  margin-bottom: 25px;
+  font-size: 1.2rem;
   position: relative;
   display: inline-block;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  font-weight: 600;
-  position: relative;
 }
 
 .footer-nav h3::after,
@@ -886,169 +806,81 @@ footer {
 .footer-contact h3::after {
   content: '';
   position: absolute;
-  bottom: -5px;
+  bottom: -8px;
   left: 0;
-  width: 25px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 2px;
+  background: var(--primary-color);
 }
 
 .footer-nav ul,
-.footer-services ul,
-.footer-contact ul {
+.footer-services ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .footer-nav li,
-.footer-services li,
-.footer-contact li {
-  margin-bottom: 10px;
-  line-height: 1.5;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.95rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.footer-services li {
+  margin-bottom: 12px;
 }
 
 .footer-nav a,
-.footer-contact a,
-.footer-services li {
+.footer-contact a {
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: var(--transition);
+  transition: color 0.3s ease;
   display: inline-block;
-  position: relative;
-  padding: 0;
-  font-size: 0.9rem;
-  width: 100%;
-  font-weight: 400;
 }
 
 .footer-nav a:hover,
 .footer-contact a:hover {
-  color: #ffffff;
-  transform: translateX(3px);
+  color: var(--primary-color);
+  transform: translateX(5px);
 }
 
-.footer-contact li {
+.footer-contact p {
+  margin-bottom: 15px;
   display: flex;
-  align-items: flex-start;
-  white-space: normal;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .footer-contact i {
   margin-right: 10px;
-  margin-top: 3px;
-  color: rgba(255, 255, 255, 0.4);
-  width: 14px;
-  font-size: 0.9rem;
-  text-align: center;
-  flex-shrink: 0;
+  color: var(--primary-color);
+  width: 20px;
 }
 
-/* Enhanced social links for 2025 */
 .social-links {
   display: flex;
   margin-bottom: 0;
-  gap: 12px;
 }
 
 .social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px; /* 2025 touch target size */
-  height: 44px; /* 2025 touch target size */
+  width: 40px;
+  height: 40px;
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border-radius: 50%;
+  margin-right: 12px;
   transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-}
-
-.social-links a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
-}
-
-.social-links a:hover::before {
-  opacity: 1;
 }
 
 .social-links a:hover {
+  background-color: var(--primary-color);
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.social-links a i {
-  font-size: 1.2rem;
-  transition: var(--transition);
-}
-
-.social-links a:hover i {
-  transform: scale(1.1);
 }
 
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 25px;
-  margin-top: 30px;
+  padding-top: 20px;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-}
-
-.copyright p {
-  margin-bottom: 8px;
-}
-
-.copyright a {
-  color: var(--primary-light);
-  transition: var(--transition);
-  text-decoration: none;
-  padding: 0 5px;
-}
-
-.copyright a:hover {
-  color: var(--primary-color);
-  text-decoration: underline;
-}
-
-.made-with {
-  margin-top: 10px;
-  font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.6);
-  padding-bottom: 10px;
-}
-
-.made-with span[aria-hidden="true"] {
-  color: #ff6b6b;
-  animation: heartbeat 1.5s infinite ease-in-out;
-  display: inline-block;
-  transform-origin: center;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .made-with span[aria-hidden="true"] {
-    animation: none;
-  }
+  text-align: center;
 }
 
 /* ---------- Scroll to Top Button - 2025 UI/UX Standards ---------- */
