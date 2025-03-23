@@ -371,5 +371,49 @@
 
     <script src="js/form-validation.js"></script>
     <script src="js/main.js"></script>
+    
+    <!-- Theme Switcher (Dev Only) -->
+    <div class="theme-switch-container">
+        <span>Dark Mode:</span>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="theme-slider"></span>
+        </label>
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            
+            // Check system preference and set the toggle accordingly
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeToggle.checked = true;
+            }
+            
+            // Handle manual toggling
+            themeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                } else {
+                    htmlElement.setAttribute('data-theme', 'light');
+                }
+            });
+            
+            // Listen for system preference changes
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!htmlElement.hasAttribute('data-theme')) {
+                    themeToggle.checked = e.matches;
+                    if (e.matches) {
+                        htmlElement.setAttribute('data-theme', 'dark');
+                    } else {
+                        htmlElement.setAttribute('data-theme', 'light');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
