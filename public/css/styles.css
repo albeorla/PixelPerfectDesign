@@ -110,6 +110,18 @@ html[data-theme="dark"] .footer-logo {
   border-radius: var(--border-radius);
 }
 
+html[data-theme="dark"] .service-card,
+html[data-theme="dark"] .feature-card,
+html[data-theme="dark"] .brand-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .logo img,
+html[data-theme="dark"] .hero-logo {
+  filter: brightness(1.2);
+}
+
 @media (prefers-color-scheme: dark) {
   /* Properly handle logo in dark contexts - footer */
   .footer-logo {
