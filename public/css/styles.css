@@ -838,7 +838,7 @@ footer::before {
 
 .footer-about p {
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   line-height: 1.7;
   font-size: 0.95rem;
   max-width: 90%;
