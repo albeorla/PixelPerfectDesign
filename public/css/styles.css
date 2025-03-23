@@ -181,6 +181,17 @@ html[data-theme="dark"] .service-icon i {
   color: #ffffff;
 }
 
+/* Brand and feature card icon enhancements for dark mode */
+html[data-theme="dark"] .feature-card i,
+html[data-theme="dark"] .brand-card i {
+  color: var(--primary-light);
+  filter: brightness(1.2);
+}
+
+html[data-theme="dark"] .brand-card h3 {
+  color: var(--primary-light);
+}
+
 /* Form elements */
 html[data-theme="dark"] .form-group label {
   color: rgba(255, 255, 255, 0.9);
@@ -200,14 +211,39 @@ html[data-theme="dark"] .form-group select:hover {
   border-color: var(--primary-light);
 }
 
+html[data-theme="dark"] .form-group input:focus,
+html[data-theme="dark"] .form-group textarea:focus,
+html[data-theme="dark"] .form-group select:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 4px rgba(156, 143, 106, 0.3);
+  background-color: rgba(40, 40, 40, 0.9);
+  color: rgba(255, 255, 255, 0.95);
+}
+
 html[data-theme="dark"] .form-checkbox input[type="checkbox"] {
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
   background-color: rgba(30, 30, 30, 0.8);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="dark"] .form-checkbox input[type="checkbox"]:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(40, 40, 40, 0.9);
 }
 
 html[data-theme="dark"] .form-checkbox input[type="checkbox"]:checked {
   border-color: var(--primary-light);
-  background-color: var(--primary-dark);
+  background-color: var(--primary-color);
+}
+
+html[data-theme="dark"] .form-checkbox input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  filter: brightness(1.2);
+}
+
+html[data-theme="dark"] .form-checkbox label {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Mission section specific */
@@ -965,6 +1001,21 @@ html[data-theme="dark"] .error-message {
 
 .contact-form .btn:hover i {
   transform: translateX(4px);
+}
+
+/* Dark mode enhanced styling for contact form button */
+html[data-theme="dark"] .contact-form .btn {
+  background-color: var(--primary-light);
+  color: var(--dark-color);
+  box-shadow: 0 4px 12px rgba(156, 143, 106, 0.3);
+  border: 1px solid transparent;
+}
+
+html[data-theme="dark"] .contact-form .btn:hover {
+  background-color: #ffffff;
+  border-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(156, 143, 106, 0.4);
 }
 
 /* Validation feedback for 2025 */
