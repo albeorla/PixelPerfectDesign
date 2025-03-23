@@ -899,10 +899,14 @@ footer::before {
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.8);
   font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .footer-nav a,
-.footer-contact a {
+.footer-contact a,
+.footer-services li {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   transition: var(--transition);
@@ -910,6 +914,7 @@ footer::before {
   position: relative;
   padding: 0;
   font-size: 0.95rem;
+  width: 100%;
 }
 
 .footer-nav a:hover,
@@ -920,15 +925,18 @@ footer::before {
 
 .footer-contact li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  white-space: normal;
 }
 
 .footer-contact i {
   margin-right: 10px;
+  margin-top: 3px;
   color: var(--primary-color);
-  width: 12px;
+  width: 14px;
   font-size: 0.9rem;
   text-align: center;
+  flex-shrink: 0;
 }
 
 /* Enhanced social links for 2025 */
