@@ -1,13 +1,41 @@
 // Pixel Perfect Website JavaScript - Enhanced Version
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
+    // Mobile Navigation Toggle with accessibility improvements
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
     if (mobileToggle) {
+        // Add ARIA attributes for accessibility
+        mobileToggle.setAttribute('aria-expanded', 'false');
+        mobileToggle.setAttribute('aria-label', 'Toggle navigation menu');
+        navMenu.setAttribute('aria-hidden', 'true');
+        
         mobileToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            navMenu.setAttribute('aria-hidden', isExpanded);
             navMenu.classList.toggle('active');
+            
+            // Change icon based on state
+            const icon = this.querySelector('i');
+            if (icon) {
+                if (isExpanded) {
+                    icon.className = 'fas fa-bars';
+                } else {
+                    icon.className = 'fas fa-times';
+                }
+            }
+        });
+        
+        // Close menu on escape key press
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                navMenu.setAttribute('aria-hidden', 'true');
+                mobileToggle.querySelector('i').className = 'fas fa-bars';
+            }
         });
     }
     
@@ -16,10 +44,15 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             navMenu.classList.remove('active');
+            if (mobileToggle) {
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                navMenu.setAttribute('aria-hidden', 'true');
+                mobileToggle.querySelector('i').className = 'fas fa-bars';
+            }
         });
     });
     
-    // Smooth scrolling for anchor links
+    // Enhanced smooth scrolling with progress indicator for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -29,10 +62,55 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+                // Create scroll progress indicator
+                let progressIndicator = document.getElementById('scroll-progress');
+                if (!progressIndicator) {
+                    progressIndicator = document.createElement('div');
+                    progressIndicator.id = 'scroll-progress';
+                    progressIndicator.style.position = 'fixed';
+                    progressIndicator.style.top = '0';
+                    progressIndicator.style.left = '0';
+                    progressIndicator.style.height = '3px';
+                    progressIndicator.style.width = '0%';
+                    progressIndicator.style.backgroundColor = '#0099ff';
+                    progressIndicator.style.zIndex = '1000';
+                    progressIndicator.style.transition = 'width 0.1s ease-out';
+                    document.body.appendChild(progressIndicator);
+                }
+                
+                const start = window.pageYOffset;
+                const target = targetElement.offsetTop - 80;
+                const distance = target - start;
+                const duration = Math.min(1000, Math.abs(distance) / 2); // Faster for shorter distances
+                
+                let startTime = null;
+                
+                function animation(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    // Update progress indicator
+                    progressIndicator.style.width = `${progress * 100}%`;
+                    
+                    window.scrollTo(0, start + distance * easeInOutQuad(progress));
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    } else {
+                        // Remove progress indicator after completion
+                        setTimeout(() => {
+                            progressIndicator.style.width = '0%';
+                        }, 200);
+                    }
+                }
+                
+                // Easing function for smoother scroll
+                function easeInOutQuad(t) {
+                    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                }
+                
+                requestAnimationFrame(animation);
             }
         });
     });

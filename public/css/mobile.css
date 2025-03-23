@@ -97,11 +97,28 @@
   z-index: 1000;
 }
 
-/* Improve tap targets for mobile */
+/* Improve tap targets for mobile - 2025 standard recommends 44px minimum */
 .nav-menu li a,
 .btn,
-.contact-form button {
+.contact-form button,
+.social-links a,
+.footer-nav a,
+.footer-services a,
+.footer-contact a {
   padding: 12px 20px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Add touch feedback */
+.nav-menu li a:active,
+.btn:active,
+.footer-nav a:active,
+.contact-form button:active {
+  transform: scale(0.97);
+  transition: transform 0.1s;
 }
 
 /* Ensure images are responsive */

@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixel Perfect - Luxury audio & video solutions perfected</title>
     <meta name="description" content="Pixel Perfect specializes in cutting-edge audio, video, and smart home solutions for homes and businesses in New York and Connecticut.">
+    <meta name="theme-color" content="#0099ff">
+    <meta name="color-scheme" content="light">
     <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo-192.png">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -17,19 +20,24 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="images/logo.png" alt="Pixel Perfect Logo">
-                <h1>Pixel Perfect</h1>
+                <a href="#home" aria-label="Pixel Perfect Home">
+                    <img src="images/logo.png" alt="Pixel Perfect Logo" width="50" height="50">
+                    <h1>Pixel Perfect</h1>
+                </a>
             </div>
-            <button class="mobile-toggle">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu" aria-controls="primary-navigation">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
             </button>
-            <ul class="nav-menu">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#why-us">Why Choose Us</a></li>
-                <li><a href="#brands">Our Partners</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <nav aria-label="Primary Navigation">
+                <ul class="nav-menu" id="primary-navigation" aria-hidden="true">
+                    <li><a href="#about" aria-current="page">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#brands">Our Partners</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
@@ -247,24 +255,65 @@
                     <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/pixelperfectav" target="_blank">@PixelPerfectAV</a></p>
                 </div>
                 <div class="contact-form">
-                    <form id="contact-form">
+                    <form id="contact-form" novalidate aria-label="Contact form">
+                        <p class="form-description" id="form-description">Send us a message and we'll get back to you as soon as possible.</p>
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required 
+                                   aria-required="true" 
+                                   aria-describedby="name-description"
+                                   autocomplete="name">
+                            <div id="name-description" class="sr-only">Please enter your full name</div>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required 
+                                   aria-required="true" 
+                                   aria-describedby="email-description"
+                                   autocomplete="email"
+                                   inputmode="email">
+                            <div id="email-description" class="sr-only">Please enter a valid email address where we can contact you</div>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <label for="phone">Phone (optional)</label>
+                            <input type="tel" id="phone" name="phone" 
+                                   aria-describedby="phone-description"
+                                   autocomplete="tel"
+                                   inputmode="tel"
+                                   pattern="[0-9\+\-\.\(\) ]{10,}">
+                            <div id="phone-description" class="sr-only">Optional phone number for faster communication</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-interest">Service of Interest (optional)</label>
+                            <select id="service-interest" name="service-interest" aria-describedby="service-description">
+                                <option value="">Please select</option>
+                                <option value="home-theater">Home Theater & Audio</option>
+                                <option value="automation">Home Automation</option>
+                                <option value="security">Security & Surveillance</option>
+                                <option value="tv-install">TV & Display Installation</option>
+                                <option value="networking">Networking Solutions</option>
+                                <option value="lighting">Lighting & Shade Solutions</option>
+                                <option value="other">Other/Multiple Services</option>
+                            </select>
+                            <div id="service-description" class="sr-only">Select the service you're most interested in</div>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
+                            <textarea id="message" name="message" required 
+                                      aria-required="true" 
+                                      aria-describedby="message-description"
+                                      rows="5"></textarea>
+                            <div id="message-description" class="sr-only">Please provide details about your project or questions</div>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <div class="form-group form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required aria-required="true">
+                            <label for="consent">I consent to Pixel Perfect contacting me about my inquiry</label>
+                        </div>
+                        <div id="form-status-container" role="status" aria-live="polite" class="sr-only"></div>
+                        <button type="submit" class="btn">
+                            <span class="btn-text">Send Message</span>
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
                     </form>
                 </div>
             </div>
