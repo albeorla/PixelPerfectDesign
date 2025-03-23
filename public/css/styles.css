@@ -791,8 +791,8 @@ footer::before {
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-bottom: 40px;
+  gap: 30px;
+  margin-bottom: 30px;
   text-align: left;
   padding: 0;
 }
@@ -873,12 +873,13 @@ footer::before {
 
 .footer-nav li,
 .footer-services li {
-  margin-bottom: 16px;
-  line-height: 1.4;
+  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
 .footer-services li {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
 }
 
 .footer-nav a,
@@ -888,7 +889,7 @@ footer::before {
   transition: var(--transition);
   display: inline-block;
   position: relative;
-  padding: 4px 0;
+  padding: 0;
   font-size: 0.95rem;
 }
 
@@ -899,18 +900,19 @@ footer::before {
 }
 
 .footer-contact p {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.4;
+  line-height: 1.1;
+  font-size: 0.95rem;
 }
 
 .footer-contact i {
-  margin-right: 15px;
+  margin-right: 12px;
   color: var(--primary-color);
-  width: 16px;
-  font-size: 1.1rem;
+  width: 14px;
+  font-size: 1rem;
   text-align: center;
 }
 
