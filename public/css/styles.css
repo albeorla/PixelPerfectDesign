@@ -791,8 +791,8 @@ footer::before {
 .footer-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-bottom: 30px;
+  gap: 20px;
+  margin-bottom: 20px;
   text-align: left;
   padding: 0;
 }
@@ -843,8 +843,8 @@ footer::before {
 .footer-services h3,
 .footer-contact h3 {
   color: var(--primary-light);
-  margin-bottom: 12px;
-  font-size: 0.95rem;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
   position: relative;
   display: inline-block;
   letter-spacing: 0.5px;
@@ -873,7 +873,7 @@ footer::before {
 
 .footer-nav li,
 .footer-services li {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   line-height: 1;
 }
 
@@ -900,7 +900,7 @@ footer::before {
 }
 
 .footer-contact p {
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
