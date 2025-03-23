@@ -1,6 +1,43 @@
 /* Additional Mobile Optimizations */
 
 @media (max-width: 768px) {
+  /* Mobile header controls */
+  .header-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mobile-toggle {
+    display: block;
+  }
+  
+  .theme-toggle-nav {
+    margin-right: 10px;
+    padding: 5px;
+    height: 36px;
+    width: 36px;
+  }
+  
+  /* Mobile navigation */
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-main);
+    padding: 20px;
+    flex-direction: column;
+    display: none;
+    box-shadow: var(--box-shadow);
+    z-index: 100;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-menu li {
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
   /* Adjust hero section for mobile */
   .hero {
     padding-top: 100px;

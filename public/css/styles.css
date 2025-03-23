@@ -317,43 +317,48 @@ html[data-theme="dark"] .social-links a:hover {
   }
 }
 
-/* Theme toggle button - elegant and minimal design */
-.theme-toggle-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  color: #fff;
+/* Header controls container for theme toggle and mobile menu button */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Theme toggle in navigation - clean, minimal design */
+.theme-toggle-nav {
+  background: transparent;
   border: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  color: var(--dark-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 20px;
-  transition: all 0.3s ease;
+  font-size: 18px;
+  transition: all 0.2s ease;
+  padding: 0;
 }
 
-.theme-toggle-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  background-color: var(--primary-dark);
+.theme-toggle-nav:hover {
+  background-color: rgba(156, 143, 106, 0.1);
+  color: var(--primary-color);
+}
+
+.theme-toggle-nav:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-light);
 }
 
 /* Adjustments for dark mode */
-html[data-theme="dark"] .theme-toggle-btn {
-  background-color: var(--primary-light);
-  color: var(--dark-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+html[data-theme="dark"] .theme-toggle-nav {
+  color: rgba(255, 255, 255, 0.9);
 }
 
-html[data-theme="dark"] .theme-toggle-btn:hover {
-  background-color: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+html[data-theme="dark"] .theme-toggle-nav:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary-light);
 }
 
 * {
