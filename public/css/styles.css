@@ -747,13 +747,14 @@ header.scrolled {
   padding: 40px;
 }
 
-/* ---------- Footer ---------- */
+/* ---------- Footer - 2025 Standards ---------- */
 footer {
-  background: linear-gradient(to bottom, #1a1a1a, #121212);
+  background: linear-gradient(to bottom right, #222222, #111111);
   color: white;
   padding: 80px 0 20px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
 }
 
 footer::before {
@@ -780,15 +781,28 @@ footer::before {
   align-items: flex-start;
 }
 
+/* Updated logo container with better visibility */
+.footer-logo-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .footer-logo {
   width: 120px;
-  margin-bottom: 20px;
+  height: auto;
+  display: block;
 }
 
 .footer-about p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 25px;
   line-height: 1.7;
+  font-size: 0.95rem;
+  max-width: 90%;
 }
 
 .footer-nav h3,
@@ -799,6 +813,7 @@ footer::before {
   font-size: 1.2rem;
   position: relative;
   display: inline-block;
+  letter-spacing: 0.5px;
 }
 
 .footer-nav h3::after,
@@ -827,10 +842,12 @@ footer::before {
 
 .footer-nav a,
 .footer-contact a {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: var(--transition);
   display: inline-block;
+  position: relative;
+  padding: 3px 0;
 }
 
 .footer-nav a:hover,
@@ -842,45 +859,111 @@ footer::before {
 .footer-contact p {
   margin-bottom: 15px;
   display: flex;
-  align-items: center;
-  color: rgba(255, 255, 255, 0.7);
+  align-items: flex-start;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-contact i {
   margin-right: 10px;
   color: var(--primary-color);
   width: 20px;
+  font-size: 1.1rem;
+  margin-top: 4px;
 }
 
+/* Enhanced social links for 2025 */
 .social-links {
   display: flex;
   margin-bottom: 0;
+  gap: 12px;
 }
 
 .social-links a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px; /* 2025 touch target size */
+  height: 44px; /* 2025 touch target size */
   background-color: rgba(255, 255, 255, 0.1);
   color: white;
   border-radius: 50%;
-  margin-right: 12px;
   transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-links a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.social-links a:hover::before {
+  opacity: 1;
 }
 
 .social-links a:hover {
-  background-color: var(--primary-color);
   transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.social-links a i {
+  font-size: 1.2rem;
+  transition: var(--transition);
+}
+
+.social-links a:hover i {
+  transform: scale(1.1);
 }
 
 .copyright {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 20px;
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
+}
+
+.copyright a {
+  color: var(--primary-light);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.copyright a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.made-with {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.made-with span[aria-hidden="true"] {
+  color: #ff6b6b;
+  animation: heartbeat 1.5s infinite ease-in-out;
+  display: inline-block;
+  transform-origin: center;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .made-with span[aria-hidden="true"] {
+    animation: none;
+  }
 }
 
 /* ---------- Scroll to Top Button - 2025 UI/UX Standards ---------- */
