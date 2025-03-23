@@ -109,3 +109,18 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Responsive logo adjustments */
+@media (max-width: 480px) {
+  .logo img {
+    height: 40px;
+  }
+  
+  .hero-logo {
+    width: auto;
+    max-width: 160px;
+    margin: 0 auto 20px;
+    display: block;
+    object-fit: contain;
+  }
+}
