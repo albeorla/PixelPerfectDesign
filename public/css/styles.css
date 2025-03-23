@@ -843,8 +843,8 @@ footer::before {
 .footer-services h3,
 .footer-contact h3 {
   color: var(--primary-light);
-  margin-bottom: 20px;
-  font-size: 1rem;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
   position: relative;
   display: inline-block;
   letter-spacing: 0.5px;
@@ -857,9 +857,9 @@ footer::before {
 .footer-contact h3::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -6px;
   left: 0;
-  width: 25px;
+  width: 20px;
   height: 2px;
   background: var(--primary-color);
 }
@@ -873,8 +873,8 @@ footer::before {
 
 .footer-nav li,
 .footer-services li {
-  margin-bottom: 10px;
-  line-height: 1.2;
+  margin-bottom: 8px;
+  line-height: 1;
 }
 
 .footer-services li {
@@ -900,19 +900,19 @@ footer::before {
 }
 
 .footer-contact p {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   display: flex;
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
-  line-height: 1.1;
+  line-height: 1;
   font-size: 0.95rem;
 }
 
 .footer-contact i {
-  margin-right: 12px;
+  margin-right: 10px;
   color: var(--primary-color);
-  width: 14px;
-  font-size: 1rem;
+  width: 12px;
+  font-size: 0.9rem;
   text-align: center;
 }
 
