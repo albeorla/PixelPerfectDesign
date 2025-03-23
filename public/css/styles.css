@@ -838,7 +838,7 @@ footer::before {
 
 .footer-about p {
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   line-height: 1.7;
   font-size: 0.95rem;
   max-width: 90%;
@@ -848,7 +848,7 @@ footer::before {
 .footer-services h3,
 .footer-contact h3 {
   color: var(--primary-light);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   font-size: 0.9rem;
   position: relative;
   display: inline-block;
@@ -878,7 +878,7 @@ footer::before {
 
 .footer-nav li,
 .footer-services li {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   line-height: 1.5;
 }
 
@@ -905,7 +905,7 @@ footer::before {
 }
 
 .footer-contact p {
-  margin-bottom: 28px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   color: rgba(255, 255, 255, 0.8);
