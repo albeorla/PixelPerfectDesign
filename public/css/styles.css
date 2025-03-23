@@ -103,6 +103,28 @@ html[data-theme="dark"] {
 }
 
 /* Dark mode specific adjustments */
+/* Logo and branding */
+html[data-theme="dark"] .logo img,
+html[data-theme="dark"] .hero-logo {
+  filter: brightness(2) contrast(1.2) invert(1);
+  transition: var(--transition);
+}
+
+/* Mobile navigation dark mode fixes */
+html[data-theme="dark"] .mobile-toggle {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] .nav-menu {
+  background-color: var(--bg-main);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .logo h1 {
+  color: var(--primary-light);
+}
+
 html[data-theme="dark"] .footer-logo {
   filter: brightness(2) contrast(1.2) saturate(1.1);
   background-color: rgba(255, 255, 255, 0.1);
@@ -110,16 +132,117 @@ html[data-theme="dark"] .footer-logo {
   border-radius: var(--border-radius);
 }
 
+/* Text and headings */
+html[data-theme="dark"] h1, 
+html[data-theme="dark"] h2, 
+html[data-theme="dark"] h3, 
+html[data-theme="dark"] h4, 
+html[data-theme="dark"] h5, 
+html[data-theme="dark"] h6 {
+  color: var(--primary-light);
+}
+
+html[data-theme="dark"] .section-title h2:after {
+  background-color: var(--primary-light);
+  height: 4px; /* Thicker for better visibility */
+}
+
+/* Navigation elements */
+html[data-theme="dark"] .nav-menu li a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+html[data-theme="dark"] .nav-menu li a:hover,
+html[data-theme="dark"] .nav-menu li a.active {
+  color: var(--primary-light);
+}
+
+/* Cards and containers */
 html[data-theme="dark"] .service-card,
 html[data-theme="dark"] .feature-card,
 html[data-theme="dark"] .brand-card {
   background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
-html[data-theme="dark"] .logo img,
-html[data-theme="dark"] .hero-logo {
-  filter: brightness(1.2);
+html[data-theme="dark"] .service-card:hover,
+html[data-theme="dark"] .feature-card:hover,
+html[data-theme="dark"] .brand-card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+}
+
+html[data-theme="dark"] .service-icon {
+  background-color: var(--primary-color);
+}
+
+html[data-theme="dark"] .service-icon i {
+  color: #ffffff;
+}
+
+/* Form elements */
+html[data-theme="dark"] .form-group label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] .form-group input,
+html[data-theme="dark"] .form-group textarea,
+html[data-theme="dark"] .form-group select {
+  background-color: rgba(30, 30, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="dark"] .form-group input:hover,
+html[data-theme="dark"] .form-group textarea:hover,
+html[data-theme="dark"] .form-group select:hover {
+  border-color: var(--primary-light);
+}
+
+html[data-theme="dark"] .form-checkbox input[type="checkbox"] {
+  border-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+html[data-theme="dark"] .form-checkbox input[type="checkbox"]:checked {
+  border-color: var(--primary-light);
+  background-color: var(--primary-dark);
+}
+
+/* Mission section specific */
+html[data-theme="dark"] .mission {
+  background-color: var(--primary-dark);
+}
+
+html[data-theme="dark"] .mission h2,
+html[data-theme="dark"] .mission p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Button adjustments */
+html[data-theme="dark"] .btn {
+  background-color: var(--primary-light);
+  color: var(--dark-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="dark"] .btn:hover {
+  background-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer adjustments */
+html[data-theme="dark"] .footer-nav a,
+html[data-theme="dark"] .footer-contact a,
+html[data-theme="dark"] .social-links a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+html[data-theme="dark"] .footer-nav a:hover,
+html[data-theme="dark"] .footer-contact a:hover,
+html[data-theme="dark"] .social-links a:hover {
+  color: var(--primary-light);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -148,13 +271,26 @@ html[data-theme="dark"] .hero-logo {
   background-color: var(--bg-card);
   padding: 15px;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   z-index: 9999;
   display: flex;
   align-items: center;
   font-size: 14px;
   user-select: none;
   border: 1px solid var(--input-border);
+  transition: transform 0.3s ease;
+}
+
+/* Ensure theme switch is visible in dark mode */
+html[data-theme="dark"] .theme-switch-container {
+  background-color: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-switch-container:hover {
+  transform: translateY(-5px);
 }
 
 .theme-switch {
@@ -720,6 +856,23 @@ header.scrolled {
   border-color: #4caf50;
 }
 
+/* Dark mode form validations */
+html[data-theme="dark"] .form-group input:not(:focus):invalid,
+html[data-theme="dark"] .form-group textarea:not(:focus):invalid {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 1px rgba(255, 107, 107, 0.2);
+}
+
+html[data-theme="dark"] .form-group input:valid,
+html[data-theme="dark"] .form-group textarea:valid {
+  border-color: #66bb6a;
+  box-shadow: 0 0 0 1px rgba(102, 187, 106, 0.2);
+}
+
+html[data-theme="dark"] .error-message {
+  color: #ff6b6b;
+}
+
 .form-group textarea {
   height: 150px;
   resize: vertical;
@@ -838,6 +991,18 @@ header.scrolled {
   border-radius: 8px;
   margin-bottom: 20px;
   animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Dark mode success message */
+html[data-theme="dark"] .success-message {
+  background-color: rgba(76, 175, 80, 0.15);
+  border-left: 4px solid #66bb6a;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark mode form and dropdown styles */
+html[data-theme="dark"] .form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
 }
 
 /* Screen reader only utility class - 2025 accessibility */
