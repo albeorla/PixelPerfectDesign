@@ -32,8 +32,10 @@ function validateForm() {
     
     // Reset field styles
     document.querySelectorAll('.form-group input, .form-group textarea').forEach(field => {
-        field.style.borderColor = '#eee';
+        field.style.borderColor = '';
         field.setAttribute('aria-invalid', 'false');
+        // Add was-validated class to indicate this field has been validated
+        field.classList.add('was-validated');
     });
     
     // Validate name
@@ -215,7 +217,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Reset border color
-            field.style.borderColor = '#eee';
+            field.style.borderColor = '';
+            
+            // Remove was-validated class to prevent validation styles until next validation
+            field.classList.remove('was-validated');
             
             // Remove success indicator
             const successIndicator = field.parentNode.querySelector('.success-indicator');
@@ -249,8 +254,11 @@ function validateField(field) {
     }
     
     // Reset styling
-    field.style.borderColor = '#eee';
+    field.style.borderColor = '';
     field.setAttribute('aria-invalid', 'false');
+    
+    // Mark field as validated to enable CSS validation styles
+    field.classList.add('was-validated');
     
     // Get field value
     const fieldId = field.id;
@@ -258,6 +266,8 @@ function validateField(field) {
     
     // Skip validation if field is empty but not required
     if (!value && !field.hasAttribute('required')) {
+        // Remove was-validated class for optional empty fields
+        field.classList.remove('was-validated');
         return true;
     }
     
